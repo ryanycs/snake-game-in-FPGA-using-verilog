@@ -3,18 +3,27 @@
 ## About the Project
 This is a snake game using verilog
 
+<img src="https://github.com/abc911217/snake-game-in-FPGA-using-verilog/blob/main/image/snake.jpg?raw=true" alt="image" width="500"/>
+
+[video click here](https://youtu.be/_I3xCUduyhc)
+
 ### Fectures
+* If the snake goes out of the border, it will come in from the other side
 * The snake will grow longer when eating the food
 * when snake eats the food, food will regenerate at random position (maybe overlap with snake)
 * The food will be regenerated if the snake doesn't eat the food too long
 * If the snake head touch its body, GAME OVER !
-* show gaming time on 7 segment display
-* show the score on LED
+* Show gaming time on 7 segment display
+* Show the score on LED
 
 ## Usage
 Use 4-bit switch to control the snake
 
+![gif](https://github.com/abc911217/snake-game-in-FPGA-using-verilog/blob/main/image/move.gif?raw=true)
+
 use 8 dip switch to reset the game
+
+![gif](https://github.com/abc911217/snake-game-in-FPGA-using-verilog/blob/main/image/reset.gif?raw=true)
 
 ## Pins Setting
 | To        | Value    |
