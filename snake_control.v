@@ -41,11 +41,10 @@ module snake_control(
 	
 	// snake head
 	always @(posedge clk, posedge rst) begin
-		if (rst)
-			begin
+		if (rst) begin
 				snake_x[0] <= 3;
 				snake_y[0] <= 3;
-			end
+		end
 		else
 			case (direction)
 				up:
@@ -75,20 +74,18 @@ module snake_control(
 
 	// eat the food
 	always @(posedge clk, posedge rst) begin
-		if (rst)
-			begin
-				eaten <= 0;
-				length <= 0;
-			end
-		else if (snake_x[0] == food_x && snake_y[0] == food_y && eaten == 0)
-			begin
-				eaten <= 1;
-				
-				if (length == 15)
-					length <= length;
-				else
-					length <= length + 1;
-			end
+		if (rst) begin
+			eaten <= 0;
+			length <= 0;
+		end
+		else if (snake_x[0] == food_x && snake_y[0] == food_y && eaten == 0) begin
+			eaten <= 1;
+			
+			if (length == 15)
+				length <= length;
+			else
+				length <= length + 1;
+		end
 		else
 			eaten <= 0;
 				
@@ -98,13 +95,12 @@ module snake_control(
 	// game over
 	always @(posedge clk, posedge rst) begin
 		if (rst) game_over <= 0;
-		else
-			begin
-				for (integer i = 1; i <= 15; i = i + 1) begin
-					if (snake_x[0] == snake_x[i] && snake_y[0] == snake_y[i] && length >= i)
-						game_over <= 1;
-				end
+		else begin
+			for (integer i = 1; i <= 15; i = i + 1) begin
+				if (snake_x[0] == snake_x[i] && snake_y[0] == snake_y[i] && length >= i)
+					game_over <= 1;
 			end
+		end
 	end
 	
 	// transform snake position to 8x8 LED metrix

@@ -41,30 +41,26 @@ module food_generator(
 	
 	// get random position of food
 	always @(posedge gen, posedge rst) begin
-		if (rst)
-			begin
-				food_x <= 4;
-				food_y <= 4;
-			end
-		else
-			begin
-				food_x <= rand_x;
-				food_y <= rand_y;
-			end
+		if (rst) begin
+			food_x <= 4;
+			food_y <= 4;
+		end
+		else begin
+			food_x <= rand_x;
+			food_y <= rand_y;
+		end
 	end
 	
 	// regenerate food if snake doesn't eat the food too long
 	always @(posedge _1HZ_clk) begin
-		if (elapsed_time >= 9)
-			begin
-				elapsed_time <= 0;
-				regenerate <= 1;
-			end
-		else
-			begin
-				elapsed_time <= elapsed_time + 1;
-				regenerate <= 0;
-			end
+		if (elapsed_time >= 9) begin
+			elapsed_time <= 0;
+			regenerate <= 1;
+		end
+		else begin
+			elapsed_time <= elapsed_time + 1;
+			regenerate <= 0;
+		end
 	end
 	
 	// transform food position to 8x8 LED metrix

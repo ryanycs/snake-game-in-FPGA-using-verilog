@@ -37,11 +37,10 @@ module display(
 				color_r[i] <= led_r[i][cnt];
 				color_g[i] <= led_g[i][cnt];
 			end	
-		else
-			begin
-				color_r <= x[cnt];
-				color_g <= 8'b11111111;
-			end
+		else begin
+			color_r <= x[cnt];
+			color_g <= 8'b11111111;
+		end
 
 		cnt <= cnt + 1;
 	end
